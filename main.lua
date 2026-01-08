@@ -18,6 +18,26 @@ local SobreosScriptsTab = Window:AddTab({ Title = "Sobre os Scripts", Icon = "ho
 local InfoTab = Window:AddTab({ Title = "Info", Icon = "info" })
 local SettingsTab = Window:AddTab({ Title = "Settings", Icon = "settings" })
 
+local ScriptsBloxTab = Window:AddTab({
+    Title = "ScriptsBlox",
+    Icon = "terminal"
+})
+
+local ScriptsBrainrotTab = Window:AddTab({
+    Title = "ScriptsBrainrot",
+    Icon = "terminal"
+})
+
+local SobreosScriptsTab = Window:AddTab({
+    Title = "Sobre os Scripts",
+    Icon = "home"
+})
+
+local InfoTab = Window:AddTab({
+    Title = "Info",
+    Icon = "info"
+})
+
 ScriptsBloxTab:AddButton({
     Title = "Executar Astral",
     Callback = function()
