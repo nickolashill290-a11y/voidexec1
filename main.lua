@@ -3,8 +3,8 @@ local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/d
 local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
 
 local Window = Fluent:CreateWindow({
-    Title = "voidExec " .. Fluent.Version,
-    SubTitle = "by VoidExec",
+    Title = "voidexec[beta] " .. Fluent.Version,
+    SubTitle = "by voidexec [paid]",
     TabWidth = 160,
     Size = UDim2.fromOffset(580, 460),
     Acrylic = true,
@@ -14,48 +14,23 @@ local Window = Fluent:CreateWindow({
 
 getgenv().Window = Window
 
-local ScriptsBloxTab = Window:AddTab({ Title = "ScriptsBlox", Icon = "terminal" })
 local ScriptsBrainrotTab = Window:AddTab({ Title = "ScriptsBrainrot", Icon = "terminal" })
-local SobreosScriptsTab = Window:AddTab({ Title = "Sobre os Scripts", Icon = "home" })
+local SobreOsScriptsTab = Window:AddTab({ Title = "Sobre Os Scripts", Icon = "terminal" })
 local InfoTab = Window:AddTab({ Title = "Info", Icon = "info" })
 local SettingsTab = Window:AddTab({ Title = "Settings", Icon = "settings" })
 
-ScriptsBloxTab:AddButton({
-    Title = "Executar Astral",
+ScriptsBrainrotTab:AddButton({
+    Title = "Executar lennon hub",
     Callback = function()
-        loadstring(game:HttpGet("https://rawscripts.net/raw/Blox-Fruits-ASTRAL-29222"))()
-    end
-})
-
-ScriptsBloxTab:AddButton({
-    Title = "Executar Gravity",
-    Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/Dev-GravityHub/BloxFruit/refs/heads/main/Main.lua"))()
+        loadstring(game:HttpGet("https://pastefy.app/MJw2J4T6/raw"))()
     end
 })
 
 ScriptsBrainrotTab:AddButton({
-    Title = "Executar Chilli Hub",
+    Title = "Executar miranda",
     Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/tienkhanh1/spicy/main/Chilli.lua"))()
+        loadstring(game:HttpGet("https://pastefy.app/JJVhs3rK/raw"))()
     end
-})
-
-ScriptsBrainrotTab:AddButton({
-    Title = "Executar Nameless",
-    Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/ily123950/Vulkan/refs/heads/main/Tr"))()
-    end
-})
-
-SobreosScriptsTab:AddParagraph({
-    Title = "Sobre",
-    Content = "Se faltar algum script, entre no Discord na aba Info e abra um ticket."
-})
-
-InfoTab:AddParagraph({
-    Title = "Discord",
-    Content = "https://discord.gg/pDF83Sj4HC"
 })
 
 InfoTab:AddParagraph({
@@ -63,34 +38,14 @@ InfoTab:AddParagraph({
     Content = "Não nos responsabilizamos por banimentos."
 })
 
-SettingsTab:AddToggle({
-    Title = "Toggle Teste",
-    Default = false,
-    Callback = function(Value)
-        print(Value)
-    end
+InfoTab:AddParagraph({
+    Title = "Nossa comunidade",
+    Content = "https://discord.gg/F2NXMVZ3VE"
 })
 
-SettingsTab:AddSlider({
-    Title = "Slider Teste",
-    Default = 50,
-    Min = 0,
-    Max = 100,
-    Rounding = 1,
-    Callback = function(Value)
-        print(Value)
-    end
-})
-
-SettingsTab:AddInput({
-    Title = "Input Teste",
-    Default = "",
-    Placeholder = "Digite algo",
-    Numeric = false,
-    Finished = false,
-    Callback = function(Value)
-        print(Value)
-    end
+SobreOsScriptsTab:AddParagraph({
+    Title = "Aviso",
+    Content = "Se faltar algum script, entre no servidor da aba Info e abra um ticket."
 })
 
 SaveManager:SetLibrary(Fluent)
@@ -128,6 +83,10 @@ button.BackgroundTransparency = 1
 button.Image = "rbxassetid://71062543907599"
 button.Active = true
 button.Draggable = true
+
+local corner = Instance.new("UICorner")
+corner.CornerRadius = UDim.new(1, 0)
+corner.Parent = button
 
 button.MouseButton1Click:Connect(function()
     local Window = getgenv().Window
