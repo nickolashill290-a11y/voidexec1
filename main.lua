@@ -12,6 +12,8 @@ local Window = Fluent:CreateWindow({
     MinimizeKey = Enum.KeyCode.LeftControl
 })
 
+getgenv().Window = Window
+
 local ScriptsBloxTab = Window:AddTab({ Title = "ScriptsBlox", Icon = "terminal" })
 local ScriptsBrainrotTab = Window:AddTab({ Title = "ScriptsBrainrot", Icon = "terminal" })
 local SobreosScriptsTab = Window:AddTab({ Title = "Sobre os Scripts", Icon = "home" })
@@ -65,7 +67,7 @@ SettingsTab:AddToggle({
     Title = "Toggle Teste",
     Default = false,
     Callback = function(Value)
-        print("Toggle:", Value)
+        print(Value)
     end
 })
 
@@ -76,7 +78,7 @@ SettingsTab:AddSlider({
     Max = 100,
     Rounding = 1,
     Callback = function(Value)
-        print("Slider:", Value)
+        print(Value)
     end
 })
 
@@ -87,19 +89,16 @@ SettingsTab:AddInput({
     Numeric = false,
     Finished = false,
     Callback = function(Value)
-        print("Input:", Value)
+        print(Value)
     end
 })
 
 SaveManager:SetLibrary(Fluent)
 InterfaceManager:SetLibrary(Fluent)
-
 SaveManager:IgnoreThemeSettings()
 SaveManager:SetIgnoreIndexes({})
-
 InterfaceManager:SetFolder("VoidExec")
 SaveManager:SetFolder("VoidExec/configs")
-
 InterfaceManager:BuildInterfaceSection(SettingsTab)
 SaveManager:BuildConfigSection(SettingsTab)
 
@@ -112,3 +111,26 @@ Fluent:Notify({
 })
 
 SaveManager:LoadAutoloadConfig()
+
+local Players = game:GetService("Players")
+local player = Players.LocalPlayer
+
+local ToggleGui = Instance.new("ScreenGui")
+ToggleGui.Name = "VoidExecToggle"
+ToggleGui.ResetOnSpawn = false
+ToggleGui.Parent = player:WaitForChild("PlayerGui")
+
+local button = Instance.new("ImageButton")
+button.Parent = ToggleGui
+button.Size = UDim2.fromOffset(50, 50)
+button.Position = UDim2.fromScale(0.02, 0.5)
+button.BackgroundTransparency = 1
+button.Image = "rbxassetid://71062543907599"
+button.Active = true
+button.Draggable = true
+
+button.MouseButton1Click:Connect(function()
+    local Window = getgenv().Window
+    if not Window then return end
+    Window:Minimize()
+end)
